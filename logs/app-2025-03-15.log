@@ -1,0 +1,7 @@
+2025-03-15 05:57:51 [INFO]: User logged in: john@example.com
+2025-03-15 06:03:34 [ERROR]: Wrong password for: john@example.com
+2025-03-15 06:03:42 [INFO]: User logged in: john@example.com
+2025-03-15 21:44:32 [ERROR]: Registration failed: Table 'node_app_one.users' doesn't exist
+2025-03-15 21:46:51 [INFO]: User logged in: john@example.com
+2025-03-15 22:18:01 [ERROR]: Registration failed: User already exists
+2025-03-15 22:35:26 [INFO]: User logged in: john321@yopmail.com

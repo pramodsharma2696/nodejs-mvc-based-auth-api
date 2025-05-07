@@ -1,0 +1,89 @@
+/project-root
+│
+├── /config                  # Configuration files
+│   └── db.js                # Database connection setup
+│   └── swaggerConfig.js     # Swagger API documentation setup
+│
+├── /controllers             # Handles route logic & calls services
+│   └── authController.js     # Manages user auth (register, login, profile, logout)
+│
+├── /logs                    # Logs output files
+│   └── authController.log    # Auth-related logs (e.g., login attempts)
+│
+├── /middlewares             # Express middlewares for requests
+│   │──/validators            # Input validation middlewares
+│   │   └── authValidator.js  # Validates user auth inputs
+│   │
+│   ├── errorMiddleware.js    # Central error handling middleware
+│   └── authMiddleware.js     # Protects routes (checks JWT tokens)
+│   └── rateLimiter.js        # Rate limits requests (e.g., login attempts)
+│   └── validateResult.js     # Handles express-validator results
+│
+├── /models                  # Sequelize models representing DB tables
+│   └── user.js               # User model schema (id, email, password, etc.)
+│
+│
+├── /repositories            # Data access layer (CRUD operations)
+│   └── userRepository.js     # Handles DB queries for user operations
+│
+│
+├── /routes                  # API route definitions
+│   └── authRoutes.js         # Auth routes (POST /login, /register, GET /profile)
+│
+│
+├── /services                # Business logic layer (calls repo & handles logic)
+│   └── authService.js        # Handles user registration, login, logout logic
+│   └── jwtService.js         # Handles JWT generation/verification
+│   └── mailService.js        # Handles sending emails (e.g., welcome mail)
+│   └── userService.js        # Additional user-related logic (profile updates)
+│
+├── /utils                   # Helper utilities
+│   └── responseHelper.js     # Standard response format (success, error)
+│   └── logger.js             # Winston logger setup for logging errors/info
+│
+└── app.js                    # Main Express app setup (routes, middlewares, etc.)
+└── server.js                 # Server entry point (connect DB, start server)
+└── .env                      # Environment variables (secrets, DB credentials, etc.)
+└── package.json              # Project metadata & dependencies
+
+
+-------------------------------------------------------------------------------------------
+
+{
+  "name": "course",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "secret-key": "node utils/generateSecret.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.4",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.13.0",
+    "nodemailer": "^6.10.0",
+    "nodemon": "^3.1.9",
+    "sequelize": "^6.37.6",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0",
+    "ws": "^8.18.1"
+  }
+}
+
+npm install express dotenv cors express-rate-limit express-session express-validator nodemon bcrypt jsonwebtoken
